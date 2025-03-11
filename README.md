@@ -129,6 +129,83 @@ If component relationships are incorrect, try:
 2. Checking that component names match their file names
 3. Verifying that components are properly registered and imported
 
+## Local Development and Usage
+
+Since this plugin is not yet published on npm, you can build it locally and use it in your projects:
+
+### Building Locally
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/vue-component-diagram.git
+   cd vue-component-diagram
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn
+   # or
+   pnpm install
+   ```
+
+3. Build the plugin:
+   ```bash
+   npm run build
+   # or
+   yarn build
+   # or
+   pnpm build
+   ```
+
+### Using the Local Build
+
+#### Option 1: Direct local import
+
+In your project's `vite.config.js` or `vite.config.ts`, import the plugin directly from your local build:
+
+```javascript
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vueComponentDiagram from '/path/to/vue-component-diagram/dist/index.js';
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    vueComponentDiagram({
+      outputPath: 'component-diagram.md',
+      includeComposables: true
+    })
+  ]
+});
+```
+
+#### Option 2: Copy to your project
+
+1. Copy the built files from the `dist` directory to your project
+2. Import the plugin from your local path
+
+#### Option 3: Link package locally
+
+Use npm/yarn/pnpm link to create a symlink to the package:
+
+```bash
+# In the vue-component-diagram directory
+npm link
+# or
+yarn link
+# or
+pnpm link --global
+
+# In your project directory
+npm link vue-component-diagram
+# or
+yarn link vue-component-diagram
+# or
+pnpm link --global vue-component-diagram
+```
+
 ## License
 
 MIT
