@@ -90,7 +90,6 @@ graph TD;
   - Header
   - MainContent
   - Footer
-```
 
 ## How It Works
 
